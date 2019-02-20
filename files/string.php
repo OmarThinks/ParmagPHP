@@ -50,7 +50,7 @@ parmag_string_splitString
 {
 	$toReturn=array();
 	$n=0;
-	$locations=findInString($stringIn,$chara);
+	$locations=parmag_string_findInString($stringIn,$chara);
 	//var_dump($locations);
 	$nMax=count($locations);
 	if($nMax==0)
@@ -59,15 +59,15 @@ parmag_string_splitString
 			return $toReturn;
 		}
 
-	$toReturn[$n++]=cutString($stringIn,0,($locations[0]));
+	$toReturn[$n++]=parmag_string_cutString($stringIn,0,($locations[0]));
 	for($i=0;$i<($nMax-1);$i++)
 	{
 		$toReturn[$n++]=
-		cutString
+		parmag_string_cutString
 		($stringIn,($locations[$i]+1),($locations[$i+1]));
 	}
 	$toReturn[$n++]=
-	cutString
+	parmag_string_cutString
 	($stringIn,$locations[$nMax-1]+1,
 		(strlen($stringIn)));
 	return $toReturn;
@@ -85,7 +85,7 @@ parmag_string_splitString
 function
 parmag_string_stringToAssocArray($stringIn,$seperator1,$seperator2)
 {
-	$lvl1Array=splitString($stringIn,$seperator1);
+	$lvl1Array=parmag_string_splitString($stringIn,$seperator1);
 	$toReturn=array();
 	$n=count($lvl1Array);
 
@@ -96,7 +96,7 @@ parmag_string_stringToAssocArray($stringIn,$seperator1,$seperator2)
 	{
 		$subString=$lvl1Array[$i];
 
-		$subArray=splitString($subString,$seperator2);
+		$subArray=parmag_string_splitString($subString,$seperator2);
 		//var_dump($subArray);
 		$index=$subArray[0];
 		if(isset($subArray[1]))
@@ -127,7 +127,7 @@ function parmag_string_assocArrayToString
 		$toReturn=
 		$toReturn.$index.$seperator2.$value.$seperator1;
 	}
-	$toReturn=removeLastChar($toReturn);
+	$toReturn=parmag_string_removeLastChar($toReturn);
 	return $toReturn;
 }
 
@@ -140,12 +140,12 @@ parmag_string_stringToArrayOfArrays($string,$seperator1,$seperator2)
 {
 	$string=$string."";
 	if(strlen($string)===0){return array();}
-	$arraysLvl1=splitString($string,$seperator1);
+	$arraysLvl1=parmag_string_splitString($string,$seperator1);
 	$arraysLvl2=array();
 	$subArray=array();
 	foreach ($arraysLvl1 as $key => $value) 
 	{
-		$subArray=splitString($arraysLvl1[$key],$seperator2);
+		$subArray=parmag_string_splitString($arraysLvl1[$key],$seperator2);
 		$arraysLvl2=addArray
 		(array($arraysLvl2,array($subArray)));
 	}
@@ -161,9 +161,9 @@ function parmag_string_arrayOfArraysToString($array,$seperator1,$seperator2)
 	{
 		$arrayOfStrings=addArray
 		(array($arrayOfStrings,array(
-			arrayToString($value,$seperator2))));
+			parmag_string_arrayToString($value,$seperator2))));
 	}
-	return arrayToString($arrayOfStrings,$seperator1);
+	return parmag_string_arrayToString($arrayOfStrings,$seperator1);
 }
 
 
@@ -217,7 +217,7 @@ function parmag_string_isNewString($string1,$string2,$seperator)
 {
 	if(strlen($string2)==0){return false;}
 	if(strlen($string1)==0){return true;}
-	$array=splitString($string1,$seperator);
+	$array=parmag_string_splitString($string1,$seperator);
 	foreach($array as $value)
 		{if($value==$string2){return false;}}
 	return true;
@@ -288,7 +288,7 @@ parmag_string_findInString
 	//var_dump($max);
 	for($i=0;$i<$max;$i++)
 		{
-			$s=charAt($stringIn,$i);
+			$s=parmag_string_charAt($stringIn,$i);
 			//var_dump($s);
 			if($s==$chara)
 			{
