@@ -43,6 +43,26 @@ function
 parmag_string_split
 ($inputString,$separator)
 {
+	if(gettype($inputString)!=="string")
+		{if(gettype($inputString)!=="integer")
+		{if(gettype($inputString)!=="float")
+			{return 
+			"parmag_string_split(Error1):The inputString is not string, integer or float.";}}}
+	$inputString = $inputString . "";
+	
+	if(gettype($separator)!=="string")
+		{if(gettype($separator)!=="integer")
+		{if(gettype($separator)!=="float")
+			{return 
+			"parmag_string_split(Error2):The separator is not string, integer or float.";}}}
+	$inputString = $inputString . "";
+	$separator = $separator . "" ;
+	if(strlen($separator)===0)
+	{return "parmag_string_split(Error3):The separator consists of 0 characters.";}
+	if(strlen($separator)>1)
+	{return "parmag_string_split(Error4):The separator consists of more than one character.";}
+	
+
 	$toReturn=array();
 	$n=0;
 	$locations=parmag_string_find($inputString,$separator);
