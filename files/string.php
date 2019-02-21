@@ -513,17 +513,40 @@ TESTING:
 
 
 parmag_string_split($stringIn,$chara);
+//Test1 : 3 seperated
 $s="111,222,333,444";
+print("Test1 : ");
 print_r(parmag_string_split($s,","));
-print ("<br>") ;
-//Array ( [0] => 111 [1] => 222 [2] => 333 [3] => 444 ) 
+print ("<br><br><br>") ;
+//Array ( [0] => 111 [1] => 222 [2] => 333 [3] => 444 )  
+
+//Test2 : 2 Seperated
 $s="111,222";
+print("Test2 : ");
 print_r(parmag_string_split($s,","));
-//Array ( [0] => 111 [1] => 222 )
-print ("<br>") ;
+//Array ( [0] => 111 [1] => 222 ) 
+print ("<br><br><br>") ;
+
+//Test3 : 1 only,m no Separations
 $s="111";
+print("Test3 : ");
 print_r(parmag_string_split($s,","));
-//Array ( [0] => 111 )
+//Array ( [0] => 111 ) 
+print ("<br><br><br>") ;
+
+//Test4 : empty two
+$s=",";
+print("Test4 : ");
+print_r(parmag_string_split($s,","));
+//Array ( [0] => 111 ) 
+print ("<br><br><br>") ;
+
+//Test5 : empty text
+$s="";
+print("Test5 : ");
+print_r(parmag_string_split($s,","));
+//Array ( [0] => 111 ) 
+print ("<br><br><br>") ;
 
 
 
