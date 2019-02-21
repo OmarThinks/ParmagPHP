@@ -1,6 +1,6 @@
 <?php
 /*
-DESCRIPTION:
+SUMMARY:
 This file contains all the functions that are related to the string
 */
 
@@ -30,11 +30,6 @@ function parmag_string_removeFirstChar($stringIn);
 function parmag_string_simpleSearch($stringIn,$query);
 
 */
-
-/*test*/
-
-
-
 
 
 
@@ -336,7 +331,7 @@ function parmag_string_simpleSearch($stringIn,$query)
 
 
 /*
-Description:
+DESCRIPTION:
 
 
 
