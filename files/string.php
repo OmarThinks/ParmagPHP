@@ -548,40 +548,96 @@ TESTING:
 
 
 parmag_string_split($inputString,$separator);
-//Test1 : 3 seperated
-$s="111,222,333,444";
-print("Test1 : ");
-print_r(parmag_string_split($s,","));
-print ("<br><br><br>") ;
-//Array ( [0] => 111 [1] => 222 [2] => 333 [3] => 444 )  
-
-//Test2 : 2 Seperated
-$s="111,222";
-print("Test2 : ");
-print_r(parmag_string_split($s,","));
-//Array ( [0] => 111 [1] => 222 ) 
-print ("<br><br><br>") ;
-
-//Test3 : 1 only,m no Separations
-$s="111";
-print("Test3 : ");
-print_r(parmag_string_split($s,","));
-//Array ( [0] => 111 ) 
-print ("<br><br><br>") ;
-
-//Test4 : empty two
-$s=",";
-print("Test4 : ");
-print_r(parmag_string_split($s,","));
-//Array ( [0] => 111 ) 
-print ("<br><br><br>") ;
-
-//Test5 : empty text
-$s="";
-print("Test5 : ");
-print_r(parmag_string_split($s,","));
-//Array ( [0] => 111 ) 
-print ("<br><br><br>") ;
+	//Test 01 : 3 seperated
+	$s="111,222,333,444";
+	print("Test 01 : ");
+	print_r(parmag_string_split($s,","));
+	print ("<hr>") ;
+	//Test01 : Array ( [0] => 111 [1] => 222 [2] => 333 [3] => 444 )  
+	
+	//Test 02 : 2 Seperated
+	$s="111,222";
+	print("Test 02 : ");
+	print_r(parmag_string_split($s,","));
+	//Test02 : Array ( [0] => 111 [1] => 222 )  
+	print ("<hr>") ;
+	
+	//Test 03 : 1 only,m no Separations
+	$s="111";
+	print("Test 03 : ");
+	print_r(parmag_string_split($s,","));
+	//Test03 : Array ( [0] => 111 ) 
+	print ("<hr>") ;
+	
+	//Test 04 : empty two
+	$s=",";
+	print("Test 04 : ");
+	print_r(parmag_string_split($s,","));
+	//Test04 : Array ( [0] => [1] => ) 
+	print ("<hr>") ;
+	
+	//Test 05 : empty text
+	$s="";
+	print("Test 05 : ");
+	print_r(parmag_string_split($s,","));
+	//Test05 : Array ( [0] => )  
+	print ("<hr>") ;
+	
+	//Test 06 : inputString is integer
+	$s=11522533;
+	print("Test 06 : ");
+	print_r(parmag_string_split($s,"5"));
+	//Test 06 : Array ( [0] => 11 [1] => 22 [2] => 33 ) 
+	print ("<hr>") ;
+	
+	//Test 07 : inputString is float
+	$s=11522533.0;
+	print("Test 07 : ");
+	print_r(parmag_string_split($s,"5"));
+	//Test 07 : Array ( [0] => 11 [1] => 22 [2] => 33 )  
+	print ("<hr>") ;
+	
+	//Test 08 : separator is integer
+	$s="11522533";
+	print("Test 08 : ");
+	print_r(parmag_string_split($s,5));
+	//Test 08 : Array ( [0] => 11 [1] => 22 [2] => 33 )  
+	print ("<hr>") ;
+	
+	//Test 09 : separator is float
+	$s="11522533";
+	print("Test 09 : ");
+	print_r(parmag_string_split($s,5.0));
+	//Test 09 : Array ( [0] => 11 [1] => 22 [2] => 33 )  
+	print ("<hr>") ;
+	
+	//Test 10 : Error1
+	$s=true;
+	print("Test 10 : ");
+	print_r(parmag_string_split($s,5.0));
+	//Test 10 : parmag_string_split(Error1):The inputString is not string, integer or double. 
+	print ("<hr>") ;
+	
+	//Test 11 : Error2
+	$s="111,222,333";
+	print("Test 11 : ");
+	print_r(parmag_string_split($s,true));
+	//Test 11 : parmag_string_split(Error2):The separator is not string, integer or double. 
+	print ("<hr>") ;
+	
+	//Test 12 : Error3
+	$s="11522533";
+	print("Test 12 : ");
+	print_r(parmag_string_split($s,""));
+	//Test 12 : parmag_string_split(Error3):The separator consists of 0 characters. 
+	print ("<hr>") ;
+	
+	//Test 13 : Error4
+	$s="111,;222,;333";
+	print("Test 13 : ");
+	print_r(parmag_string_split($s,",;"));
+	//Test 13 : parmag_string_split(Error4):The separator consists of more than one character. 
+	print ("<br><br><br>") ;
 
 
 
