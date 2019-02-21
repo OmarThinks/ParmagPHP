@@ -512,17 +512,17 @@ TESTING:
 
 
 
-parmag_string_splitString($stringIn,$chara);
+parmag_string_split($stringIn,$chara);
 $s="111,222,333,444";
-print_r(parmag_string_splitString($s,","));
+print_r(parmag_string_split($s,","));
 print ("<br>") ;
 //Array ( [0] => 111 [1] => 222 [2] => 333 [3] => 444 ) 
 $s="111,222";
-print_r(parmag_string_splitString($s,","));
+print_r(parmag_string_split($s,","));
 //Array ( [0] => 111 [1] => 222 )
 print ("<br>") ;
 $s="111";
-print_r(parmag_string_splitString($s,","));
+print_r(parmag_string_split($s,","));
 //Array ( [0] => 111 )
 
 
@@ -659,43 +659,43 @@ array (size=3)
 
 
 
-function parmag_string_isNewString($string1,$string2,$seperator);
+function parmag_string_isNew($string1,$string2,$seperator);
 
 Test: when the first is empty
-var_dump(parmag_string_isNewString("","a",";"));
+var_dump(parmag_string_isNew("","a",";"));
 C:\wamp\www\kant\index.php:94:boolean true
 Note: T.G it works perfect
 
 
 
 Test: when the second is empty
-var_dump(parmag_string_isNewString("a","",";"));
+var_dump(parmag_string_isNew("a","",";"));
 C:\wamp\www\kant\index.php:94:boolean false
 
 
 Test: when first has one value, new
-var_dump(parmag_string_isNewString("a","b",";"));
+var_dump(parmag_string_isNew("a","b",";"));
 C:\wamp\www\kant\index.php:94:boolean true
 
 Test: first has 2 values, new
-var_dump(parmag_string_isNewString("a;c","b",";"));
+var_dump(parmag_string_isNew("a;c","b",";"));
 C:\wamp\www\kant\index.php:94:boolean true
 
 Test: first has 1 value, old
-var_dump(parmag_string_isNewString("a","a",";"));
+var_dump(parmag_string_isNew("a","a",";"));
 C:\wamp\www\kant\index.php:94:boolean false
 
 Test: has 2 values, old
-var_dump(parmag_string_isNewString("a;b","a",";"));
+var_dump(parmag_string_isNew("a;b","a",";"));
 C:\wamp\www\kant\index.php:94:boolean false
 
 
 
 
-function parmag_string_simpleStringSearch($stringIn,$query)
+function parmag_string_simpleSearch($stringIn,$query)
 
 Test: query is more than stringIn
-var_dump(parmag_string_simpleStringSearch("hello","hello1"));
+var_dump(parmag_string_simpleSearch("hello","hello1"));
 C:\wamp\www\kant\index.php:102:boolean false
 T.G: works perfectly
 
@@ -703,7 +703,7 @@ T.G: works perfectly
 Test: does it loop well? 1 character
 Note: turn on the print inside the for loop
 and the pring outside the loop
-var_dump(parmag_string_simpleStringSearch("hello","1"));
+var_dump(parmag_string_simpleSearch("hello","1"));
 h e l l o
 C:\wamp\www\kant\index.php:100:boolean false
 T.G: it works perfectly
@@ -712,7 +712,7 @@ T.G: it works perfectly
 Test: does it loop well? 2 charcters
 Note: turn on the print inside the for loop
 and the pring outside the loop
-var_dump(parmag_string_simpleStringSearch("hello","12"));
+var_dump(parmag_string_simpleSearch("hello","12"));
 he el ll lo
 C:\wamp\www\kant\index.php:100:boolean false
 T.G: it works perfectly
@@ -720,45 +720,45 @@ T.G: it works perfectly
 Test: does it loop well? 3 charcters
 Note: turn on the print inside the for loop
 and the pring outside the loop
-var_dump(parmag_string_simpleStringSearch("hello","123"));
+var_dump(parmag_string_simpleSearch("hello","123"));
 hel ell llo 
 C:\wamp\www\kant\index.php:100:boolean false
 T.G: it works perfectly
 
 
 Test: does work right? 1 char
-var_dump(parmag_string_simpleStringSearch("hello","h"));
+var_dump(parmag_string_simpleSearch("hello","h"));
 C:\wamp\www\kant\index.php:100:boolean true
 T.G: it works perfectly
 
 
 Test: does work right? 2 chars
-var_dump(parmag_string_simpleStringSearch("hello","he"));
+var_dump(parmag_string_simpleSearch("hello","he"));
 C:\wamp\www\kant\index.php:100:boolean true
 T.G: it works perfectly
 
 
 Test: does work right? 3 chars
-var_dump(parmag_string_simpleStringSearch("hello","hel"));
+var_dump(parmag_string_simpleSearch("hello","hel"));
 C:\wamp\www\kant\index.php:100:boolean true
 T.G: it works perfectly
 
 
 
 Test: does work right? 1 char, doesn't exist
-var_dump(parmag_string_simpleStringSearch("hello","t"));
+var_dump(parmag_string_simpleSearch("hello","t"));
 C:\wamp\www\kant\index.php:100:boolean false
 T.G: it works perfectly
 
 
 Test: does work right? 2 chars, doesn't exist
-var_dump(parmag_string_simpleStringSearch("hello","tr"));
+var_dump(parmag_string_simpleSearch("hello","tr"));
 C:\wamp\www\kant\index.php:100:boolean false
 T.G: it works perfectly
 
 
 Test: does work right? 3 chars, doesn't exist
-var_dump(parmag_string_simpleStringSearch("hello","trr"));
+var_dump(parmag_string_simpleSearch("hello","trr"));
 C:\wamp\www\kant\index.php:100:boolean false
 T.G: it works perfectly
 
