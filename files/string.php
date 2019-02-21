@@ -273,7 +273,7 @@ parmag_string_cut($stringIn,$from,$to)
 
 
 function
-parmag_string_findIn
+parmag_string_find
 ($stringIn, $chara)
 {
 	$current=0;
