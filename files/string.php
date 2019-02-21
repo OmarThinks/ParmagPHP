@@ -8,7 +8,7 @@ This file contains all the functions that are related to the string
 /*SummaryFunctions*/
 /*
 //High Level
-function parmag_string_splitString($stringIn,$chara);
+function parmag_string_split($stringIn,$chara);
 
 function parmag_string_stringToAssocArray($stringIn,$seperator1,$seperator2);
 function parmag_string_assocArrayToString ($arrayIn,$seperator1,$seperator2);
@@ -17,17 +17,17 @@ parmag_string_stringToArrayOfArrays($string,$seperator1,$seperator2);
 function parmag_string_arrayOfArraysToString($array,$seperator1,$seperator2);
 function parmag_string_addAssocArray($arrayOfArrays);
 function parmag_string_addArray($arrayOfArrays);
-function parmag_string_isNewString($string1,$string2,$seperator);
+function parmag_string_isNew($string1,$string2,$seperator);
 
 
 //Low Level
 function parmag_string_arrayToString($inputArray,$seperator);
 function parmag_string_charAt($stringIn,$number);
-function parmag_string_cutString($stringIn,$from,$to);
-function parmag_string_findInString($stringIn, $chara);
+function parmag_string_cut($stringIn,$from,$to);
+function parmag_string_find($stringIn, $chara);
 function parmag_string_removeLastChar($stringIn);
 function parmag_string_removeFirstChar($stringIn);
-function parmag_string_simpleStringSearch($stringIn,$query);
+function parmag_string_simpleSearch($stringIn,$query);
 
 */
 
@@ -45,12 +45,12 @@ function parmag_string_simpleStringSearch($stringIn,$query);
 
 
 function
-parmag_string_splitString
+parmag_string_split
 ($stringIn,$chara)
 {
 	$toReturn=array();
 	$n=0;
-	$locations=parmag_string_findInString($stringIn,$chara);
+	$locations=parmag_string_find($stringIn,$chara);
 	//var_dump($locations);
 	$nMax=count($locations);
 	if($nMax==0)
@@ -59,15 +59,15 @@ parmag_string_splitString
 			return $toReturn;
 		}
 
-	$toReturn[$n++]=parmag_string_cutString($stringIn,0,($locations[0]));
+	$toReturn[$n++]=parmag_string_cut($stringIn,0,($locations[0]));
 	for($i=0;$i<($nMax-1);$i++)
 	{
 		$toReturn[$n++]=
-		parmag_string_cutString
+		parmag_string_cut
 		($stringIn,($locations[$i]+1),($locations[$i+1]));
 	}
 	$toReturn[$n++]=
-	parmag_string_cutString
+	parmag_string_cut
 	($stringIn,$locations[$nMax-1]+1,
 		(strlen($stringIn)));
 	return $toReturn;
@@ -85,7 +85,7 @@ parmag_string_splitString
 function
 parmag_string_stringToAssocArray($stringIn,$seperator1,$seperator2)
 {
-	$lvl1Array=parmag_string_splitString($stringIn,$seperator1);
+	$lvl1Array=parmag_string_split($stringIn,$seperator1);
 	$toReturn=array();
 	$n=count($lvl1Array);
 
@@ -96,7 +96,7 @@ parmag_string_stringToAssocArray($stringIn,$seperator1,$seperator2)
 	{
 		$subString=$lvl1Array[$i];
 
-		$subArray=parmag_string_splitString($subString,$seperator2);
+		$subArray=parmag_string_split($subString,$seperator2);
 		//var_dump($subArray);
 		$index=$subArray[0];
 		if(isset($subArray[1]))
@@ -140,12 +140,12 @@ parmag_string_stringToArrayOfArrays($string,$seperator1,$seperator2)
 {
 	$string=$string."";
 	if(strlen($string)===0){return array();}
-	$arraysLvl1=parmag_string_splitString($string,$seperator1);
+	$arraysLvl1=parmag_string_split($string,$seperator1);
 	$arraysLvl2=array();
 	$subArray=array();
 	foreach ($arraysLvl1 as $key => $value) 
 	{
-		$subArray=parmag_string_splitString($arraysLvl1[$key],$seperator2);
+		$subArray=parmag_string_split($arraysLvl1[$key],$seperator2);
 		$arraysLvl2=addArray
 		(array($arraysLvl2,array($subArray)));
 	}
@@ -213,11 +213,11 @@ function parmag_string_addArray($arrayOfArrays)
 
 
 
-function parmag_string_isNewString($string1,$string2,$seperator)
+function parmag_string_isNew($string1,$string2,$seperator)
 {
 	if(strlen($string2)==0){return false;}
 	if(strlen($string1)==0){return true;}
-	$array=parmag_string_splitString($string1,$seperator);
+	$array=parmag_string_split($string1,$seperator);
 	foreach($array as $value)
 		{if($value==$string2){return false;}}
 	return true;
@@ -264,7 +264,7 @@ parmag_string_charAt($stringIn,$number)
 
 
 function
-parmag_string_cutString($stringIn,$from,$to)
+parmag_string_cut($stringIn,$from,$to)
 {
 	$lenght=$to-$from;
 	return substr
@@ -278,7 +278,7 @@ parmag_string_cutString($stringIn,$from,$to)
 
 
 function
-parmag_string_findInString
+parmag_string_findIn
 ($stringIn, $chara)
 {
 	$current=0;
@@ -314,7 +314,7 @@ function parmag_string_removeFirstChar($stringIn)
 }
 
 
-function parmag_string_simpleStringSearch($stringIn,$query)
+function parmag_string_simpleSearch($stringIn,$query)
 {
 	$stringIn=$stringIn."";
 	$query=$query."";
