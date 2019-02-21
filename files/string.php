@@ -365,13 +365,23 @@ INPUTS:
 	-$inpuString : The string that needd to be separated
 		It might have a form like this:
 		"111,222,333"
+		$inputString: must have one of the following types:
+			string, integer or float
 	-$separator : This is the separator charcter
 		It can be like this ","
 		It can't be more than one character
 FUNCTION:
 	-The string will be separated into an array
 RETURN VALUE:
-	-array of strings
+	-array of strings if the conditions are fulfilled
+	-"parmag_string_split(Error1):The inputString is not string, integer or float." : 
+	if the $inputString is not integer, float or string
+	-"parmag_string_split(Error2):The separator is not string, integer or float." : 
+	If the $separator is not string, integer or float
+	-"parmag_string_split(Error3):The separator consists of 0 characters.":
+	f the separator has no characters at all
+	-"parmag_string_split(Error4):The separator consists of more than one character.":
+	If the separator consists of more than one character
 
 
 
