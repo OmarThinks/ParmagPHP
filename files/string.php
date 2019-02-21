@@ -45,16 +45,16 @@ parmag_string_split
 {
 	if(gettype($inputString)!=="string")
 		{if(gettype($inputString)!=="integer")
-		{if(gettype($inputString)!=="float")
+		{if(gettype($inputString)!=="double")
 			{return 
-			"parmag_string_split(Error1):The inputString is not string, integer or float.";}}}
+			"parmag_string_split(Error1):The inputString is not string, integer or double.";}}}
 	$inputString = $inputString . "";
 	
 	if(gettype($separator)!=="string")
 		{if(gettype($separator)!=="integer")
-		{if(gettype($separator)!=="float")
+		{if(gettype($separator)!=="double")
 			{return 
-			"parmag_string_split(Error2):The separator is not string, integer or float.";}}}
+			"parmag_string_split(Error2):The separator is not string, integer or double.";}}}
 	$inputString = $inputString . "";
 	$separator = $separator . "" ;
 	if(strlen($separator)===0)
@@ -366,18 +366,20 @@ INPUTS:
 		It might have a form like this:
 		"111,222,333"
 		$inputString: must have one of the following types:
-			string, integer or float
+			string, integer or double
 	-$separator : This is the separator charcter
 		It can be like this ","
 		It can't be more than one character
+		$seperator: must have one of the following types:
+		string, integer or double
 FUNCTION:
 	-The string will be separated into an array
 RETURN VALUE:
 	-array of strings if the conditions are fulfilled
-	-"parmag_string_split(Error1):The inputString is not string, integer or float." : 
-	if the $inputString is not integer, float or string
-	-"parmag_string_split(Error2):The separator is not string, integer or float." : 
-	If the $separator is not string, integer or float
+	-"parmag_string_split(Error1):The inputString is not string, integer or double." : 
+	if the $inputString is not integer, double or string
+	-"parmag_string_split(Error2):The separator is not string, integer or double." : 
+	If the $separator is not string, integer or double
 	-"parmag_string_split(Error3):The separator consists of 0 characters.":
 	f the separator has no characters at all
 	-"parmag_string_split(Error4):The separator consists of more than one character.":
