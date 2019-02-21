@@ -8,7 +8,7 @@ This file contains all the functions that are related to the string
 /*SummaryFunctions*/
 /*
 //High Level
-function parmag_string_split($stringIn,$chara);
+function parmag_string_split($inputString,$separator);
 
 function parmag_string_stringToAssocArray($stringIn,$seperator1,$seperator2);
 function parmag_string_assocArrayToString ($arrayIn,$seperator1,$seperator2);
@@ -41,30 +41,30 @@ function parmag_string_simpleSearch($stringIn,$query);
 
 function
 parmag_string_split
-($stringIn,$chara)
+($inputString,$separator)
 {
 	$toReturn=array();
 	$n=0;
-	$locations=parmag_string_find($stringIn,$chara);
+	$locations=parmag_string_find($inputString,$separator);
 	//var_dump($locations);
 	$nMax=count($locations);
 	if($nMax==0)
 		{
-			$toReturn[0]=$stringIn;
+			$toReturn[0]=$inputString;
 			return $toReturn;
 		}
 
-	$toReturn[$n++]=parmag_string_cut($stringIn,0,($locations[0]));
+	$toReturn[$n++]=parmag_string_cut($inputString,0,($locations[0]));
 	for($i=0;$i<($nMax-1);$i++)
 	{
 		$toReturn[$n++]=
 		parmag_string_cut
-		($stringIn,($locations[$i]+1),($locations[$i+1]));
+		($inputString,($locations[$i]+1),($locations[$i+1]));
 	}
 	$toReturn[$n++]=
 	parmag_string_cut
-	($stringIn,$locations[$nMax-1]+1,
-		(strlen($stringIn)));
+	($inputString,$locations[$nMax-1]+1,
+		(strlen($inputString)));
 	return $toReturn;
 
 }
@@ -340,15 +340,18 @@ DESCRIPTION:
 
 
 
-parmag_string_split($stringIn,$chara);
-return value: array of strings
-there is a splitter chara
-NOTE: THE SPLITTER CAN NOT BE AT THE BEGINNING OF 
-THE STRING NOR AT THE END OF IT
-
-
-
-
+parmag_string_split($inputString,$separator);
+INPUTS:
+	-$inpuString : The string that needd to be separated
+		It might have a form like this:
+		"111,222,333"
+	-$separator : This is the separator charcter
+		It can be like this ","
+		It can't be more than one character
+FUNCTION:
+	-The string will be separated into an array
+RETURN VALUE:
+	-array of strings
 
 
 
@@ -512,7 +515,7 @@ TESTING:
 
 
 
-parmag_string_split($stringIn,$chara);
+parmag_string_split($inputString,$separator);
 //Test1 : 3 seperated
 $s="111,222,333,444";
 print("Test1 : ");
