@@ -340,7 +340,7 @@ DESCRIPTION:
 
 
 
-parmag_string_splitString($stringIn,$chara);
+parmag_string_split($stringIn,$chara);
 return value: array of strings
 there is a splitter chara
 NOTE: THE SPLITTER CAN NOT BE AT THE BEGINNING OF 
@@ -423,7 +423,7 @@ This function merges arrays in a single array
 
 
 
-function parmag_string_isNewString($string1,$string2,$seperator);
+function parmag_string_isNew($string1,$string2,$seperator);
 This function checks whether or not this is a new string
 $string1: the source
 $string2: to be checked
@@ -458,7 +458,7 @@ if only string[0]=0;
 
 
 
-parmag_string_cutString($stringIn,$from,$to);
+parmag_string_cut($stringIn,$from,$to);
 returns a string
 equivalent to substr();
 standard function in php
@@ -466,13 +466,13 @@ The difference is the input
 
 
 
-parmag_string_findInString($stringIn, $chara);
+parmag_string_find($stringIn, $chara);
 return an array of numbers
 they are the locations of this caharacter
 in this string
 example:
 $test=",111,222,333,";
-print_r(parmag_string_findInString($test,","));
+print_r(parmag_string_find($test,","));
 //Array ( [0] => 0 [1] => 4 [2] => 8 [3] => 12 ) 
 
 
@@ -484,7 +484,7 @@ var_dump(parmag_string_removeLastChar($s));//'abcd'
 var_dump(parmag_string_removeFirstChar($s));//'bcde'
 
 
-function parmag_string_simpleStringSearch($stringIn,$query);
+function parmag_string_simpleSearch($stringIn,$query);
 	-Inputs: the inpts here are the the string to
 	be searched, and the query to search
 	-Function: We need to know whether the same exact
