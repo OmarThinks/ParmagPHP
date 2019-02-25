@@ -14,7 +14,7 @@ function parmag_string_toAssocArray($stringIn,$seperator1,$seperator2);
 function parmag_string_fromAssocArray ($arrayIn,$seperator1,$seperator2);
 function 
 parmag_string_toArrayOfArrays($string,$seperator1,$seperator2);
-function parmag_string_arrayOfArraysToString($array,$seperator1,$seperator2);
+function parmag_string_fromArrayOfArrays($array,$seperator1,$seperator2);
 function parmag_string_addAssocArray($arrayOfArrays);
 function parmag_string_addArray($arrayOfArrays);
 function parmag_string_isNew($string1,$string2,$seperator);
@@ -168,7 +168,7 @@ parmag_string_toArrayOfArrays($string,$seperator1,$seperator2)
 }
 
 
-function parmag_string_arrayOfArraysToString($array,$seperator1,$seperator2)
+function parmag_string_fromArrayOfArrays($array,$seperator1,$seperator2)
 {
 	if(count($array)===0){return "";}
 	$arrayOfStrings=array();
@@ -433,7 +433,7 @@ parmag_string_toArrayOfArrays($string,$seperator1,$seperator2);
 	[1]{[0]=thing2,[1]=holder2,[2]=owner2}
 
 
-function parmag_string_arrayOfArraysToString($array,$seperator1,$seperator2);
+function parmag_string_fromArrayOfArrays($array,$seperator1,$seperator2);
 	-Function: 
 	[0]{[0]=thing1,[1]=holder1,[2]=owner1}
 	[1]{[0]=thing2,[1]=holder2,[2]=owner2}
@@ -713,19 +713,19 @@ array (size=0)
 	T.G: it works perfectly
 
 
-function parmag_string_arrayOfArraysToString($array,$seperator1,$seperator2);
+function parmag_string_fromArrayOfArrays($array,$seperator1,$seperator2);
 	-Test: 1*1, 3*1, 1*3, 3*3, empty
 	$a=array(array("i1"));
-	var_dump(parmag_string_arrayOfArraysToString($a,";",","));
+	var_dump(parmag_string_fromArrayOfArrays($a,";",","));
 	$a=array(array("i1"),array("i2"),array("i3"));
-	var_dump(parmag_string_arrayOfArraysToString($a,";",","));
+	var_dump(parmag_string_fromArrayOfArrays($a,";",","));
 	$a=array(array("i1","j1","k1"));
-	var_dump(parmag_string_arrayOfArraysToString($a,";",","));
+	var_dump(parmag_string_fromArrayOfArrays($a,";",","));
 	$a=array
 	(array("i1","j1","k1"),array("i2","j2","k2"),
 	var_dump(array("i3","j3","k3"),));
 	$a=array();
-	var_dump(parmag_string_arrayOfArraysToString($a,";",","));
+	var_dump(parmag_string_fromArrayOfArrays($a,";",","));
 	
 	C:\wamp\www\kant\index.php:98:string 'i1' (length=2)
 	C:\wamp\www\kant\index.php:100:string 'i1;i2;i3' (length=8)
