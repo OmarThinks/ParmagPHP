@@ -8,7 +8,7 @@ This file contains all the functions that are related to the string
 /*SummaryFunctions*/
 /*
 //High Level
-function parmag_string_split($inputString,$separator);
+function parmag_string_split($inputString,$separator); (Gitted)
 
 function parmag_string_stringToAssocArray($stringIn,$seperator1,$seperator2);
 function parmag_string_assocArrayToString ($arrayIn,$seperator1,$seperator2);
