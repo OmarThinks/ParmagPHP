@@ -10,7 +10,7 @@ This file contains all the functions that are related to the string
 //High Level
 function parmag_string_split($inputString,$separator); (Gitted)
 
-function parmag_string_stringToAssocArray($stringIn,$seperator1,$seperator2);
+function parmag_string_toAssocArray($stringIn,$seperator1,$seperator2);
 function parmag_string_assocArrayToString ($arrayIn,$seperator1,$seperator2);
 function 
 parmag_string_stringToArrayOfArrays($string,$seperator1,$seperator2);
@@ -98,7 +98,7 @@ parmag_string_split
 
 
 function
-parmag_string_stringToAssocArray($stringIn,$seperator1,$seperator2)
+parmag_string_toAssocArray($stringIn,$seperator1,$seperator2)
 {
 	$lvl1Array=parmag_string_split($stringIn,$seperator1);
 	$toReturn=array();
@@ -388,24 +388,24 @@ RETURN VALUE:
 
 
 function
-parmag_string_stringToAssocArray($stringIn,$seperator1,$seperator2);
+parmag_string_toAssocArray($stringIn,$seperator1,$seperator2);
 splits string to associative array
 
 Test: more than one value
-var_dump(parmag_string_stringToAssocArray("abcd,dcba;xyz,zyx",";",","));
+var_dump(parmag_string_toAssocArray("abcd,dcba;xyz,zyx",";",","));
 C:\wamp\www\kant\index.php:78:
 array (size=2)
   'abcd' => string 'dcba' (length=4)
   'xyz' => string 'zyx' (length=3)
 
 Test: only one value
-var_dump(parmag_string_stringToAssocArray("abcd,dcba",";",","));
+var_dump(parmag_string_toAssocArray("abcd,dcba",";",","));
 C:\wamp\www\kant\index.php:76:
 array (size=1)
   'abcd' => string 'dcba' (length=4)
 
 Test: no values
-var_dump(parmag_string_stringToAssocArray("",";",","));
+var_dump(parmag_string_toAssocArray("",";",","));
 C:\wamp\www\kant\index.php:76:
 array (size=0)
   empty
