@@ -482,10 +482,29 @@ if only string[0]=0;
 
 
 parmag_string_cut($stringIn,$from,$to);
-returns a string
-equivalent to substr();
-standard function in php
-The difference is the input
+	-Inputs:
+		$stringIn: The string to be sliced
+		$from: The beginnig of slicing (Strats counting from 0)
+		$to: The end of slicing (Starts counting from 1)
+	-Function:
+		This function returns a substring of a string
+	-Return:
+		The substring
+	-Conditions:
+		1)The $stringIn must be string, integer or float
+		"parmag_string_cut $stringIn is not string, integer or float"
+		2) $from should be integer
+			else should be string that can be connverted to (integer or double)
+			else 
+			"parmag_string_cut $from is a string that can't be converted to an integer or double"
+			else $from should be a double, and it will be rounded down to an integer
+		3) $to has the same last rule as $from
+		4) Now $from and $to are integers
+		5) $from should be >= 0 
+			else, $from will be conversted to 0
+		6) $to should be <= length of $stringIn
+			else: $to will be converted to $stringIn
+	
 
 
 
