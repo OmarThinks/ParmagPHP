@@ -11,7 +11,7 @@ This file contains all the functions that are related to the string
 function parmag_string_split($inputString,$separator); (Gitted)
 
 function parmag_string_toAssocArray($stringIn,$seperator1,$seperator2);
-function parmag_string_assocArrayToString ($arrayIn,$seperator1,$seperator2);
+function parmag_string_fromAssocArray ($arrayIn,$seperator1,$seperator2);
 function 
 parmag_string_stringToArrayOfArrays($string,$seperator1,$seperator2);
 function parmag_string_arrayOfArraysToString($array,$seperator1,$seperator2);
@@ -131,7 +131,7 @@ return $toReturn;
 
 
 
-function parmag_string_assocArrayToString
+function parmag_string_fromAssocArray
 ($arrayIn,$seperator1,$seperator2)
 {
 	$toReturn="";
@@ -412,11 +412,11 @@ array (size=0)
 
 
 
-function parmag_string_assocArrayToString
+function parmag_string_fromAssocArray
 ($arrayIn,$seperator1,$seperator2);
 $s="01234567890,v;01234567891,u;01234567892,v";
 $array=sqlGetMobileArray($s);
-var_dump(parmag_string_assocArrayToString($array,";",","));
+var_dump(parmag_string_fromAssocArray($array,";",","));
 //'01234567890,v;01234567891,u;01234567892,v'
 
 
