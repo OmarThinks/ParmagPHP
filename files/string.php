@@ -22,7 +22,6 @@ function parmag_string_isNew($string1,$string2,$seperator);
 
 //Low Level
 function parmag_string_fromArray($inputArray,$seperator);
-function parmag_string_charAt($stringIn,$number);
 function parmag_string_cut($stringIn,$from,$to);
 function parmag_string_find($stringIn, $chara);
 function parmag_string_removeLastChar($stringIn);
@@ -268,17 +267,6 @@ return $toReturn;
 
 
 function
-parmag_string_charAt($stringIn,$number)
-{
-	$toReturn=$stringIn[$number];
-	return $toReturn;
-}
-
-
-
-
-
-function
 parmag_string_cut($stringIn,$from,$to)
 {
 	$lenght=$to-$from;
@@ -303,7 +291,7 @@ parmag_string_find
 	//var_dump($max);
 	for($i=0;$i<$max;$i++)
 		{
-			$s=parmag_string_charAt($stringIn,$i);
+			$s=$stringIn[$i];
 			//var_dump($s);
 			if($s==$chara)
 			{
