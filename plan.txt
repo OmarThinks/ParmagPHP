@@ -1,0 +1,6 @@
+1) create functions parmag_type
+This should be about data types and converting them smoothly
+
+2) end the string.php file
+
+3) create sql.php
