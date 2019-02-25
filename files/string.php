@@ -269,11 +269,80 @@ return $toReturn;
 function
 parmag_string_cut($stringIn,$from,$to)
 {
+	$stringInType= gettype($stringIn);
+	$fromType = gettype($from);
+	$toType = gettype($to);
+
+	if ($stringInType === "string") 
+	{}
+	elseif ($stringInType === "integer") 
+	{
+		$stringInType = $stringIn . "" ;
+	}
+	elseif ($stringInType === "double") 
+	{
+		$stringIn = $stringIn . "" ;
+	}
+	else
+	{
+		return "parmag_string_cut: $stringIn is not string, integer or float" ;
+	}
+
+
+	if ($fromType === "integer") 
+	{
+	}
+	elseif ($fromType === "double") 
+	{
+		$from = intval( $from ) ;
+	}
+	elseif ($fromType === "string") 
+	{
+		try {
+			$from = $from + 0 ;
+ 		} catch (Exception $e) {
+			return "parmag_string_cut: $from is a string that can't be converted to an integer or double" ;
+		}
+	}
+	else
+	{
+		return 
+		"parmag_string_cut : $from is not integer, string or double" ;
+	}
+
+
+
+
+	if ($toType === "integer") 
+	{
+	}
+	elseif ($toType === "double") 
+	{
+		$to = intval( $to ) ;
+	}
+	elseif ($toType === "string") 
+	{
+		try {
+			$to = $to + 0 ;
+ 		} catch (Exception $e) {
+			return "parmag_string_cut: $to is a string that can't be converted to an integer or double" ;
+		}
+	}
+	else
+	{
+		return 
+		"parmag_string_cut : $to is not integer, string or double" ;
+	}
+
+
+	if ($from !>= 0) { $from = 0 ; }
+	if ($to !<= strlen ( $stringIn ) ) { $to = strlen($stringIn) ; }
+	if ($from >= $to) { return "" ; }
+
+
 	$lenght=$to-$from;
 	return substr
-	($stringIn, 
-		$from,
-		 $lenght);
+	($stringIn, $from, $lenght);
 }
 
 
@@ -492,18 +561,22 @@ parmag_string_cut($stringIn,$from,$to);
 		The substring
 	-Conditions:
 		1)The $stringIn must be string, integer or float
-		"parmag_string_cut $stringIn is not string, integer or float"
+		"parmag_string_cut: $stringIn is not string, integer or float"
 		2) $from should be integer
 			else should be string that can be connverted to (integer or double)
 			else 
-			"parmag_string_cut $from is a string that can't be converted to an integer or double"
+			"parmag_string_cut: $from is a string that can't be converted to an integer or double"
 			else $from should be a double, and it will be rounded down to an integer
+			else
+			"parmag_string_cut : $from is not integer, string or double"
 		3) $to has the same last rule as $from
 		4) Now $from and $to are integers
 		5) $from should be >= 0 
-			else, $from will be conversted to 0
-		6) $to should be <= length of $stringIn
-			else: $to will be converted to $stringIn
+			else, $from will be converted to 0
+		6) $to should be <= length of $stringIn 
+			else, $to will be converted to length of $stringIn
+		7) if $from equals or more than $to : return empty string 
+		
 	
 
 
