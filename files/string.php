@@ -13,7 +13,7 @@ function parmag_string_split($inputString,$separator); (Gitted)
 function parmag_string_toAssocArray($stringIn,$seperator1,$seperator2);
 function parmag_string_fromAssocArray ($arrayIn,$seperator1,$seperator2);
 function 
-parmag_string_stringToArrayOfArrays($string,$seperator1,$seperator2);
+parmag_string_toArrayOfArrays($string,$seperator1,$seperator2);
 function parmag_string_arrayOfArraysToString($array,$seperator1,$seperator2);
 function parmag_string_addAssocArray($arrayOfArrays);
 function parmag_string_addArray($arrayOfArrays);
@@ -151,7 +151,7 @@ function parmag_string_fromAssocArray
 
 
 function 
-parmag_string_stringToArrayOfArrays($string,$seperator1,$seperator2)
+parmag_string_toArrayOfArrays($string,$seperator1,$seperator2)
 {
 	$string=$string."";
 	if(strlen($string)===0){return array();}
@@ -422,7 +422,7 @@ var_dump(parmag_string_fromAssocArray($array,";",","));
 
 
 function 
-parmag_string_stringToArrayOfArrays($string,$seperator1,$seperator2);
+parmag_string_toArrayOfArrays($string,$seperator1,$seperator2);
 	-Function: thing1,holder1,owner1;thing2,holder2,owner2
 	Sometimes such strings exist, we need to handle them
 	in the form of an array
@@ -651,14 +651,14 @@ parmag_string_split($inputString,$separator);
 
 
 function 
-parmag_string_stringToArrayOfArrays($string,$seperator1,$seperator2);
+parmag_string_toArrayOfArrays($string,$seperator1,$seperator2);
 	-Test:1*1, 3*1, 1*3, 3*3, empty
-	var_dump(parmag_string_stringToArrayOfArrays("i1",";",","));
-	var_dump(parmag_string_stringToArrayOfArrays("i1,j1,k1",";",","));
-	var_dump(parmag_string_stringToArrayOfArrays("i1;i2;i3",";",","));
-	var_dump(parmag_string_stringToArrayOfArrays
+	var_dump(parmag_string_toArrayOfArrays("i1",";",","));
+	var_dump(parmag_string_toArrayOfArrays("i1,j1,k1",";",","));
+	var_dump(parmag_string_toArrayOfArrays("i1;i2;i3",";",","));
+	var_dump(parmag_string_toArrayOfArrays
 	("i1,j1,k1;i2,j2,k2;i3,j3,k3;",";",","));
-	var_dump(parmag_string_stringToArrayOfArrays("",";",","));
+	var_dump(parmag_string_toArrayOfArrays("",";",","));
 
 C:\wamp\www\kant\index.php:100:
 array (size=1)
