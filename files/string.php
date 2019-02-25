@@ -21,7 +21,7 @@ function parmag_string_isNew($string1,$string2,$seperator);
 
 
 //Low Level
-function parmag_string_arrayToString($inputArray,$seperator);
+function parmag_string_fromArray($inputArray,$seperator);
 function parmag_string_charAt($stringIn,$number);
 function parmag_string_cut($stringIn,$from,$to);
 function parmag_string_find($stringIn, $chara);
@@ -176,9 +176,9 @@ function parmag_string_fromArrayOfArrays($array,$seperator1,$seperator2)
 	{
 		$arrayOfStrings=addArray
 		(array($arrayOfStrings,array(
-			parmag_string_arrayToString($value,$seperator2))));
+			parmag_string_fromArray($value,$seperator2))));
 	}
-	return parmag_string_arrayToString($arrayOfStrings,$seperator1);
+	return parmag_string_fromArray($arrayOfStrings,$seperator1);
 }
 
 
@@ -248,7 +248,7 @@ function parmag_string_isNew($string1,$string2,$seperator)
 
 
 
-function parmag_string_arrayToString
+function parmag_string_fromArray
 ($inputArray,$seperator)
 {
 	$n=count($inputArray);
@@ -479,13 +479,13 @@ print_r(substr("HiThere", 1,3)); iTh
 
 
 
-parmag_string_arrayToString($inputArray,$seperator);
+parmag_string_fromArray($inputArray,$seperator);
 It's obvious, see this example
 $strings=array();
 $strings[0]=0;$strings[1]=1;$strings[2]=2;
 $strings[3]=3;$strings[4]=4;$strings[5]=5;
 $seperator=";";
-echo("<br>".parmag_string_ArrayToString($strings,$seperator)."<br>");
+echo("<br>".parmag_string_fromArray($strings,$seperator)."<br>");
 //0;1;2;3;4;5
 
 if only string[0]=0;
