@@ -996,9 +996,6 @@ function simpleClean($input,$allowed,$maxSize);
 <?php
 /*
 
-
-
-
 get.php
 
 
@@ -1483,8 +1480,7 @@ level=3:pages inside a file inside a file
 
 <?php
 /*
-
-/*sql.php*/
+sql.php
 
 Summary:
 
@@ -2631,7 +2627,7 @@ function simpleStringSearch($stringIn,$query);
 <?php
 
 /*
-/*table.php*/
+table.php
 
 Summary:
 
@@ -2910,7 +2906,7 @@ function printTableToCopy
 <?php
 /*
 
-/*validation.php*/
+validation.php
 
 SUMMARY:
 
